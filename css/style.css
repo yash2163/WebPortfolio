@@ -51,7 +51,6 @@ h3 {
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  position: relative;
   background: linear-gradient(
     135deg,
     #2b2d42 0%,
@@ -69,6 +68,30 @@ h3 {
 
 .profile-wrapper:hover .profile-photo {
   transform: scale(1.1);
+}
+
+/* Stack elements vertically on smaller screens */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center align */
+  }
+
+  .profile-wrapper {
+    margin-bottom: 15px; /* Space between photo and text */
+  }
+
+  .header-info {
+    text-align: center; /* Center align header info */
+  }
+
+  .header-title {
+    font-size: 2rem; /* Smaller title on mobile */
+  }
+
+  .header-subtitle {
+    font-size: 1rem; /* Smaller subtitle on mobile */
+  }
 }
 
 /* Header Info */
@@ -142,7 +165,7 @@ h3 {
   margin: 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allow items to wrap */
 }
 
 #navbar li {
@@ -212,6 +235,33 @@ button {
 button:hover {
   background: linear-gradient(135deg, #ffd700 0%, #6c63ff 100%);
   transform: scale(1.05); /* Hover effect with a golden color */
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Hide by default */
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger menu on smaller screens */
+  }
+
+  #navbar ul {
+    display: none; /* Hide navbar links initially */
+    flex-direction: column; /* Stack links vertically */
+    width: 100%; /* Full width */
+  }
+
+  #navbar.active ul {
+    display: flex; /* Show links when navbar is active */
+  }
+
+  #navbar li {
+    margin: 10px 0; /* Space between links */
+  }
 }
 
 /* Animations */
